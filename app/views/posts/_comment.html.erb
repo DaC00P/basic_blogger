@@ -1,4 +1,12 @@
 <div>
   <h4>Comment by <%= comment.user.email %></h4>
   <p class="comment"><%= comment.content %></p>
+  <p><%= distance_of_time_in_words(comment.post.created_at, comment.created_at) %> after post</p>
+
+  <%= link_to "delete comment", post_comment_path(@post, comment), method: :delete,
+      data: {confirm: "Really delete the comment?"}
+  %>
+  <br>
+  <%= link_to "edit", edit_post_comment_path(@post, comment) %>
+  <br>
 </div>

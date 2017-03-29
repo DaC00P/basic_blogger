@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
 
-  before_action :select_comment, only: [:edit, :update, :show, :destroy, :sold]
+  before_action :select_comment, only: [:edit, :update, :show, :destroy]
 
   def new
     @comment = Comment.new
@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     @comment.post_id = params[:post_id]
     @comment.user_id = current_user.id
-    
+
     @post = Post.find(params[:post_id])
 
     if @comment.save
@@ -23,8 +23,11 @@ class CommentsController < ApplicationController
     end
   end
 
+  def edit
+    @post = Post.find(@comment.post_id)
+  end
+
   def update
-    @comment = Comment.find(params[:id])
     @comment.update_attributes(comment_params)
     @post = Post.find(@comment.post_id)
 
@@ -38,7 +41,6 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    @comment = Comment.find(params[:id])
     @comment.destroy
 
     redirect_to(@comment.post)
