@@ -16,6 +16,6 @@ Project Requirements
 
 
 ===TODO
--tests for models
--controllers need full functionality
--views need to be written
+*CSS the front end
+*put in better error handling
+*deploy to AWS
