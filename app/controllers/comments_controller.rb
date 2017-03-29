@@ -2,27 +2,38 @@ class CommentsController < ApplicationController
 
   before_action :select_comment, only: [:edit, :update, :show, :destroy, :sold]
 
+  def new
+    @comment = Comment.new
+    @comment.post_id = @post.id
+  end
+
   def create
     @comment = Comment.new(comment_params)
+    @comment.post_id = params[:post_id]
+    @comment.user_id = current_user.id
+    
+    @post = Post.find(params[:post_id])
 
     if @comment.save
       flash[:notice] = 'Comment was successfully created.'
       redirect_to(@comment.post)
     else
-      flash[:notice] = "Error creating comment: #{@comment.errors}"
-      redirect_to(@comment.post)
+      flash[:notice] = "Error creating comment: #{@comment.errors.full_messages}"
+      redirect_to(@post)
     end
   end
 
   def update
-    @comment = Comment.update_attributes(comment_params)
+    @comment = Comment.find(params[:id])
+    @comment.update_attributes(comment_params)
+    @post = Post.find(@comment.post_id)
 
     if @comment.save
       flash[:notice] = 'Comment was successfully edited.'
       redirect_to(@comment.post)
     else
-      flash[:notice] = "Error modifying comment: #{@comment.errors}"
-      redirect_to(@comment.post)
+      flash[:notice] = "Error modifying comment: #{@comment.errors.full_messages}"
+      redirect_to(@post)
     end
   end
 

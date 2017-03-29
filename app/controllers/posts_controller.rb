@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  before_action :select_post, only: [:edit, :update, :show, :destroy, :sold]
+  before_action :select_post, only: [:edit, :update, :show, :destroy]
 
 
   def index
@@ -24,12 +24,16 @@ class PostsController < ApplicationController
     end
   end
 
+  def show
+    @comment = Comment.new
+    @comment.post_id = @post.id
+  end
+
   def edit
-    @post = Post.find(params[:id])
+
   end
 
   def update
-    @post = Post.find(params[:id])
     if @post.update(post_params)
       flash[:notice] = 'Post was successfully edited.'
       redirect_to(@post)
@@ -40,9 +44,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post = Post.find(params[:id])
     @post.destroy
-
     redirect_to(@post)
   end
 

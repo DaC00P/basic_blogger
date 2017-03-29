@@ -6,5 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+fart = User.find_by(email: 'fart@fart.com')
 helloworld = Post.create!(title: "hello", content: 'world', user_id: 1)
-Comment.create!(content: 'this is a hello world?', post_id: helloworld.id)
+Comment.create!(content: 'this is a hello world?', post_id: helloworld.id, user_id: fart.id)

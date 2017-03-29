@@ -7,6 +7,7 @@
 #  post_id    :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  user_id    :integer          not null
 #
 
 class Comment < ActiveRecord::Base
@@ -14,10 +15,9 @@ class Comment < ActiveRecord::Base
             :post_id,
             presence: true
 
-  #TODO Prevent obscene comments from 'bad actors' aka trolls. 
+  #TODO Prevent obscene comments from 'bad actors' aka trolls.
 
-  belongs_to :posts
+  belongs_to :post
 
-  has_one :user,
-          through: :posts
+  belongs_to :user
 end
