@@ -1,28 +1,14 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Project Requirements
 
-Things you may want to cover:
+* - create a new Rails app from scratch
+* - make it use a Postgres DB
+* - make the app a blog app with a Post model, Comment model, and User model
+* - create associations for each so that Users have many Posts, and Posts have many Comments
+* - install Devise as it says on it's Github page
+* - upload it it to Github
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+* A person should be able to create an account, make a post, leave a comment.
+* All posts will show up on the main page.
+* You can click through to the post to see a comment.
