@@ -17,7 +17,7 @@ class Post < ActiveRecord::Base
 
   #TODO add validation for post titles being unique
 
-  has_many :comments
+  has_many :comments, :dependent => :destroy
 
   belongs_to :user
 end

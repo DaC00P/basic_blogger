@@ -27,4 +27,5 @@ class User < ActiveRecord::Base
 
   has_many :comments,
             through: :posts
+
 end

@@ -14,6 +14,8 @@ class Comment < ActiveRecord::Base
             :post_id,
             presence: true
 
+  #TODO Prevent obscene comments from 'bad actors' aka trolls. 
+
   belongs_to :posts
 
   has_one :user,
