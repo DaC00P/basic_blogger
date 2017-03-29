@@ -31,6 +31,9 @@ gem 'therubyracer', platforms: :ruby
 gem 'devise'
 gem 'figaro'
 
+#CSS
+gem 'bootstrap-sass'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
