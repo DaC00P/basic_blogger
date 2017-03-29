@@ -6,8 +6,8 @@ Project Requirements
 * make it use a Postgres DB (yes)
 * make the app a blog app with a Post model, Comment model, and User model(done)
 * create associations for each so that Users have many Posts, and Posts have many Comments(done)
-* install Devise as it says on it's Github page
-* upload it it to Github
+* install Devise as it says on it's Github page(done)
+* upload it it to Github(done)
 
 * A person should be able to create an account, make a post, leave a comment.
 * All posts will show up on the main page.

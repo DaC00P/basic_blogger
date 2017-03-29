@@ -1,3 +1,5 @@
+require 'byebug'
+
 class CommentsController < ApplicationController
 
   before_action :select_comment, only: [:edit, :update, :show, :destroy]
@@ -30,7 +32,7 @@ class CommentsController < ApplicationController
 
   def update
     @comment.update_attributes(comment_params)
-    @post = Post.find(@comment.post_id)
+    @post = @comment.post
 
     if @comment.save
       flash[:notice] = 'Comment was successfully edited.'
@@ -53,7 +55,10 @@ class CommentsController < ApplicationController
   end
 
   def ensure_comment_modification_security
-    true
+    unless @comment.user_id == current_user.id
+      flash[:notice] = "Only a comment's creator can edit or delete it"
+      redirect_to(@comment.post)
+    end
   end
 
   def comment_params

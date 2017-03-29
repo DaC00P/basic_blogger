@@ -55,7 +55,10 @@ class PostsController < ApplicationController
   end
 
   def ensure_post_modification_security
-    true
+    unless @post.user_id == current_user.id
+      flash[:notice] = "Only a post's creator can edit or delete it"
+      redirect_to(@post)
+    end
   end
 
   def post_params
