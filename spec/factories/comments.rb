@@ -1,17 +1,16 @@
 # == Schema Information
 #
-# Table name: posts
+# Table name: comments
 #
 #  id         :integer          not null, primary key
-#  title      :string           not null
 #  content    :text             not null
+#  post_id    :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  user_id    :integer          not null
 #
 
 FactoryGirl.define do
-  factory :post do
+  factory :comment do
     
   end
 end
