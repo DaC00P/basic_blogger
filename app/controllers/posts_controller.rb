@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
   before_action :select_post, only: [:edit, :update, :show, :destroy]
+  before_action :ensure_post_modification_security, only: [:edit, :update, :destroy]
 
 
   def index
@@ -51,6 +52,10 @@ class PostsController < ApplicationController
   private
   def select_post
     @post = Post.find(params[:id])
+  end
+
+  def ensure_post_modification_security
+    true
   end
 
   def post_params

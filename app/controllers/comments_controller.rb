@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
 
   before_action :select_comment, only: [:edit, :update, :show, :destroy]
+  before_action :ensure_comment_modification_security, only: [:edit, :update, :destroy]
 
   def new
     @comment = Comment.new
@@ -49,6 +50,10 @@ class CommentsController < ApplicationController
   private
   def select_comment
     @comment = Comment.find(params[:id])
+  end
+
+  def ensure_comment_modification_security
+    true
   end
 
   def comment_params
