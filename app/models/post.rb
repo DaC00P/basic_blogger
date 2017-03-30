@@ -13,6 +13,7 @@
 class Post < ActiveRecord::Base
   validates :title,
             :content,
+            :user_id,
             presence: true
 
   #TODO Consider adding validation for post titles being unique? Re-Post factor

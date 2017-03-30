@@ -13,6 +13,7 @@
 class Comment < ActiveRecord::Base
   validates :content,
             :post_id,
+            :user_id,
             presence: true
 
   #TODO Prevent obscene comments from 'bad actors' aka trolls.

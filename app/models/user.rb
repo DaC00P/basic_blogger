@@ -23,6 +23,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  validates :encrypted_password,
+            :sign_in_count,
+            presence: true
+
   has_many :posts
 
   has_many :comments,

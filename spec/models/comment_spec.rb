@@ -13,5 +13,23 @@
 require 'rails_helper'
 
 RSpec.describe Comment, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "validates the presence of a content" do
+    it { should validate_presence_of(:content) }
+  end
+
+  describe "validates the presence of a post_id" do
+    it { should validate_presence_of(:post_id) }
+  end
+
+  describe "validates the presence of a user_id" do
+    it { should validate_presence_of(:user_id) }
+  end
+
+  describe "should belong to a post" do
+    it {should belong_to(:post)}
+  end
+
+  describe "should belong to a user" do
+    it {should belong_to(:user)}
+  end
 end

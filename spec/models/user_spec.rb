@@ -20,5 +20,23 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe "validates the presence of an email" do
+    it { should validate_presence_of(:email) }
+  end
+
+  describe "validates the presence of an encrypted_password" do
+    it { should validate_presence_of(:encrypted_password) }
+  end
+
+  describe "validates the presence of a sign_in_count" do
+    it { should validate_presence_of(:sign_in_count) }
+  end
+
+  describe "has many posts" do
+    it {should have_many(:posts)}
+  end
+
+  describe "has many comments" do
+    it {should have_many(:comments)}
+  end
 end
