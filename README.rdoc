@@ -21,3 +21,6 @@ Project Requirements
 * put in better error handling
 * upgrade to Puma for multi-threaded awesomeness
 * deploy to AWS
+
+==POTENTIAL FIXME's
+* User DB is hit twice when loading posts/# and the post has comments. Assumed b/c its passing through both controllers..optimize?

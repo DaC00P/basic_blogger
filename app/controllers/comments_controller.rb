@@ -14,7 +14,6 @@ class CommentsController < ApplicationController
     @comment.post_id = params[:post_id]
     @comment.user_id = current_user.id
 
-    #can be @comment.post
     @post = Post.find(params[:post_id])
 
     #TODO swap the redirect_to for a render
@@ -25,6 +24,10 @@ class CommentsController < ApplicationController
       flash[:notice] = "Error creating comment: #{@comment.errors.full_messages}"
       redirect_to(@post)
     end
+  end
+
+  def show
+
   end
 
   def edit
