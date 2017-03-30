@@ -11,7 +11,7 @@
 <br>
 
 <h3>Comments (<%= @post.comments.size %>) </h3>
-<%= render partial: 'posts/comment', collection: @post.comments %>
+<%= render partial: 'posts/comment', collection: @post.comments.includes(:user) %>
 
 <%= render partial: 'comments/show' %>
 
