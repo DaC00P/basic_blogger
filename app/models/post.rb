@@ -15,7 +15,7 @@ class Post < ActiveRecord::Base
             :content,
             presence: true
 
-  #TODO add validation for post titles being unique
+  #TODO Consider adding validation for post titles being unique? Re-Post factor
 
   has_many :comments, :dependent => :destroy
 

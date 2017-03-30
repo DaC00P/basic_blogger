@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     @comment.post_id = @post.id
   end
 
-  #TODO swap the redirect_to's for a render. use flash.now instead of flash!!
+  #TODO consider refactoring to use #render instead of #redirect_to
   def create
     @comment = Comment.new(comment_params)
     @comment.post_id = params[:post_id]
@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
 
     @post = Post.find(params[:post_id])
 
-    #TODO swap the redirect_to for a render
+    #TODO consider refactoring to use #render instead of #redirect_to
     if @comment.save
       flash[:notice] = 'Comment was successfully created.'
       redirect_to(@comment.post)
@@ -34,7 +34,7 @@ class CommentsController < ApplicationController
     @post = Post.find(@comment.post_id)
   end
 
-  #TODO swap the redirect_to's for a render. use flash.now instead of flash!!
+  #TODO consider refactoring to use #render instead of #redirect_to
   def update
     @comment.update_attributes(comment_params)
     @post = @comment.post
@@ -59,7 +59,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
   end
 
-  #TODO swap the redirect_to's for a render. use flash.now instead of flash!!
+  #TODO consider refactoring to use #render instead of #redirect_to
   def ensure_comment_modification_security
     unless @comment.user_id == current_user.id
       flash[:notice] = "Only a comment's creator can edit or delete it"

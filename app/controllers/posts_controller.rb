@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  #TODO swap the redirect_to for a render when post is not created. use flash.now instead of flash!!
+  #TODO consider refactoring to use #render instead of #redirect_to
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
@@ -35,7 +35,7 @@ class PostsController < ApplicationController
 
   end
 
-  #TODO swap the redirect_to's for a render. use flash.now instead of flash!!
+  ##TODO consider refactoring to use #render instead of #redirect_to
   def update
     if @post.update(post_params)
       flash[:notice] = 'Post was successfully edited.'
@@ -56,7 +56,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
-  #TODO swap the redirect_to's for a render. use flash.now instead of flash!!
+  #TODO consider refactoring to use #render instead of #redirect_to
   def ensure_post_modification_security
     unless @post.user_id == current_user.id
       flash[:notice] = "Only a post's creator can edit or delete it"
