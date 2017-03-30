@@ -16,6 +16,7 @@ Project Requirements
 
 
 ===TODO
+* Accomplish TODO's
 * CSS the front end
 * put in better error handling
 * deploy to AWS
