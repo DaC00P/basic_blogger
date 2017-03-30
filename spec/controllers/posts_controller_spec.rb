@@ -5,7 +5,6 @@ RSpec.describe PostsController, type: :controller do
   describe 'GET #index' do
     context 'when user is logged in' do
       user = FactoryGirl.build(:user)
-
       before do
         sign_in user
         get :index

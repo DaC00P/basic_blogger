@@ -2,25 +2,26 @@
 
 Project Requirements
 
-* create a new Rails app from scratch(in progress)
-* make it use a Postgres DB (yes)
-* make the app a blog app with a Post model, Comment model, and User model(done)
-* create associations for each so that Users have many Posts, and Posts have many Comments(done)
-* install Devise as it says on it's Github page(done)
-* upload it it to Github(done)
+* create a new Rails app from scratch(complete)
+* make it use a Postgres DB (complete)
+* make the app a blog app with a Post model, Comment model, and User model(complete)
+* create associations for each so that Users have many Posts, and Posts have many Comments(complete)
+* install Devise as it says on it's Github page(complete)
+* upload it it to Github(complete)
 
-* A person should be able to create an account, make a post, leave a comment.
-* All posts will show up on the main page.
-* You can click through to the post to see a comment.
+* A person should be able to create an account, make a post, leave a comment.(yes. a user must log in to post or comment as well)
+* All posts will show up on the main page.(The app is set to root 'posts#index')
+* You can click through to the post to see a comment.(Clicking on a post brings up the post page with the comment list and add comment interface)
 
 
 
 ===TODO
-* Accomplish TODO's
-* CSS the front end
-* put in better error handling
-* upgrade to Puma for multi-threaded awesomeness
+* Finish Posts Controller & Comments Controller rspec tests.
+* Investigate refactoring some redirect_to's into render's in order to cut down on server requests. Note that this will require flash.now or flash.keep, and also a refactoring of the template/partial naming.
+* CSS the front end with Bootstrap
+* put in better error displaying for the user.
+* upgrade to Puma for multi-threaded awesomeness.
 * deploy to AWS
 
 ==POTENTIAL FIXME's
-* User DB is hit twice when loading posts/# and the post has comments. Assumed b/c its passing through both controllers..optimize?
+* TO BE ADDED ONCE CODE REVIEW IS COMPLETE
