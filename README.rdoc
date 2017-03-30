@@ -19,4 +19,5 @@ Project Requirements
 * Accomplish TODO's
 * CSS the front end
 * put in better error handling
+* upgrade to Puma for multi-threaded awesomeness
 * deploy to AWS
