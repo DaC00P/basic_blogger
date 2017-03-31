@@ -16,7 +16,7 @@ Project Requirements
 
 
 ===TODO
-* Finish Posts Controller & Comments Controller rspec tests.
+* Finish Posts Controller & Comments Controller rspec tests. Follow this guide: https://benincosa.com/?p=2965
 * Investigate refactoring some redirect_to's into render's in order to cut down on server requests. Note that this will require flash.now or flash.keep, and also a refactoring of the template/partial naming.
 * CSS the front end with Bootstrap
 * put in better error displaying for the user.

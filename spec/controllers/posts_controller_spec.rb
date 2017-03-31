@@ -19,6 +19,9 @@ RSpec.describe PostsController, type: :controller do
           end
           assert_response :success
         end
+        it 'changes the post count' do
+          expect {post :create, params: { post: { id: 1, user_id: 1, content: 'Rails is awesome!', title: 'Hello Rails' } }}.to change{Post.count}
+        end
     end
   end
 end
